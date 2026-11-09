@@ -1,0 +1,63 @@
+{
+	"name": "n8n-nodes-gupy",
+	"version": "0.1.0",
+	"description": "n8n community node for the official Gupy company APIs: recruitment, admission, admin, education, engagement, pathways, and webhooks. Usable as an AI Agent tool.",
+	"license": "MIT",
+	"homepage": "https://github.com/PedroHSGuimaraes/n8n-nodes-gupy",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/PedroHSGuimaraes/n8n-nodes-gupy.git"
+	},
+	"bugs": {
+		"url": "https://github.com/PedroHSGuimaraes/n8n-nodes-gupy/issues"
+	},
+	"keywords": [
+		"n8n-community-node-package",
+		"n8n",
+		"gupy",
+		"recrutamento",
+		"rh",
+		"webhook"
+	],
+	"author": {
+		"name": "Pedro Henrique Santos Guimarães",
+		"email": "pedro.guimaraes02@hotmail.com"
+	},
+	"scripts": {
+		"build": "n8n-node build && node scripts/copy-catalog.cjs",
+		"dev": "n8n-node dev",
+		"lint": "n8n-node lint",
+		"test": "n8n-node build && node scripts/copy-catalog.cjs && node --test test/*.test.cjs",
+		"typecheck": "tsc --noEmit --pretty false",
+		"prepublishOnly": "n8n-node prerelease"
+	},
+	"files": [
+		"dist",
+		"docs",
+		"workflows",
+		"CHANGELOG.md",
+		"SECURITY.md",
+		"LICENSE.md"
+	],
+	"n8n": {
+		"n8nNodesApiVersion": 1,
+		"strict": true,
+		"credentials": ["dist/credentials/GupyApi.credentials.js"],
+		"nodes": [
+			"dist/nodes/Gupy/Gupy.node.js",
+			"dist/nodes/GupyTrigger/GupyTrigger.node.js"
+		]
+	},
+	"devDependencies": {
+		"@n8n/node-cli": "0.55.5",
+		"eslint": "9.32.0",
+		"n8n-workflow": "2.47.0",
+		"typescript": "5.9.2"
+	},
+	"peerDependencies": {
+		"n8n-workflow": "*"
+	},
+	"engines": {
+		"node": ">=24.0.0"
+	}
+}

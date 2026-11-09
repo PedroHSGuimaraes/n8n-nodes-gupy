@@ -1,0 +1,54 @@
+{
+  "name": "Gupy — listar vagas",
+  "active": false,
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "11111111-1111-4111-8111-111111111111",
+      "name": "Manual",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [0, 0]
+    },
+    {
+      "parameters": {
+        "product": "recruitment",
+        "resource": "jobs",
+        "operation": "findJobs",
+        "returnAll": false,
+        "limit": 20,
+        "maxPages": 5
+      },
+      "id": "22222222-2222-4222-8222-222222222222",
+      "name": "Listar vagas",
+      "type": "n8n-nodes-gupy.gupy",
+      "typeVersion": 1,
+      "position": [280, 0],
+      "credentials": {
+        "gupyApi": {
+          "id": "gupy-local",
+          "name": "Gupy API"
+        }
+      }
+    }
+  ],
+  "connections": {
+    "Manual": {
+      "main": [
+        [
+          {
+            "node": "Listar vagas",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "meta": {
+    "templateCredsSetupCompleted": false
+  }
+}

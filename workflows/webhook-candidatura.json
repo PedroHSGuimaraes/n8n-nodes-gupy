@@ -1,0 +1,41 @@
+{
+  "name": "Gupy — candidatura recebida",
+  "active": false,
+  "nodes": [
+    {
+      "parameters": {
+        "content": "Ative o fluxo para o node registrar POST /webhooks com a URL de produção. A Gupy exige HTTPS público e responde com retentativas se não receber 200.",
+        "height": 140,
+        "width": 420
+      },
+      "id": "33333333-3333-4333-8333-333333333333",
+      "name": "Nota",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [0, -180]
+    },
+    {
+      "parameters": {
+        "events": ["application.created", "candidate.hired", "job.published"]
+      },
+      "id": "44444444-4444-4444-8444-444444444444",
+      "name": "Gupy Trigger",
+      "type": "n8n-nodes-gupy.gupyTrigger",
+      "typeVersion": 1,
+      "position": [260, 0],
+      "credentials": {
+        "gupyApi": {
+          "id": "gupy-local",
+          "name": "Gupy API"
+        }
+      }
+    }
+  ],
+  "connections": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "meta": {
+    "templateCredsSetupCompleted": false
+  }
+}
